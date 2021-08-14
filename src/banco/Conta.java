@@ -1,45 +1,44 @@
 package banco;
 
+import java.util.List;
+
 public class Conta {
-	private String correntista;
-	private int numero;
+	private String nomeCorrentista;
+	private int numeroConta;
 	private double saldo;
 	
-	
-	
-	public Conta(String correntista, int numero) {
+   public Conta(String nomeCorrentista, int numeroConta, double saldo) {
 		super();
-		this.correntista = correntista;
-		this.numero = numero;
-		this.saldo = 0.00;
-	}
-
-	public String getCorrentista() {
-		return correntista;
-	}
-	
-	public void setCorrentista(String correntista) {
-		this.correntista = correntista;
-	}
-	
-	public int getNumero() {
-		return numero;
-	}
-	
-	public void setNumero(int numero) {
-		this.numero = numero;
-	}
-	
-	public double getSaldo() {
-		return saldo;
-	}
-	
-	public void setSaldo(double saldo) {
+		this.nomeCorrentista = nomeCorrentista;
+		this.numeroConta = numeroConta;
 		this.saldo = saldo;
 	}
-	
 
-   public void sacar(double valorSaque) {
+public String getNomeCorrentista() {
+	return nomeCorrentista;
+}
+
+public void setNomeCorrentista(String nomeCorrentista) {
+	this.nomeCorrentista = nomeCorrentista;
+}
+
+public int getNumeroConta() {
+	return numeroConta;
+}
+
+public void setNumeroConta(int numeroConta) {
+	this.numeroConta = numeroConta;
+}
+
+public double getSaldo() {
+	return saldo;
+}
+
+public void setSaldo(double saldo) {
+	this.saldo = saldo;
+}
+
+public void sacar(double valorSaque) {
 	   if(valorSaque > saldo) {
 		   System.out.println("Saldo insuficiente!!! Saldo Atual: " + saldo);
 		   return ;
@@ -58,11 +57,13 @@ public class Conta {
 	   System.out.println("Saldo Atual: " + saldo);
 	   
    }
+   public boolean verificarConta(List<ContaCorrente> lista, int nConta) {
+	   
+	   
+	  ContaCorrente conta = lista.stream().filter(x -> x.getNumeroConta() == nConta).findFirst().orElse(null);
+	  
+	  return conta != null;   }
    
-  @Override
-   public String toString() {
-	return "Nome correntista: " + correntista + ", Numero da Conta: " + numero + ", Saldo: " + saldo;
-   }
  
 	
 }
