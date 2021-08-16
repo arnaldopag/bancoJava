@@ -1,18 +1,21 @@
 package banco;
 
-import java.util.List;
-
 public class Conta {
 	private String nomeCorrentista;
 	private int numeroConta;
 	private double saldo;
 	
    public Conta(String nomeCorrentista, int numeroConta, double saldo) {
-		super();
 		this.nomeCorrentista = nomeCorrentista;
 		this.numeroConta = numeroConta;
 		this.saldo = saldo;
 	}
+   
+
+public Conta() {
+
+}
+
 
 public String getNomeCorrentista() {
 	return nomeCorrentista;
@@ -57,13 +60,16 @@ public void sacar(double valorSaque) {
 	   System.out.println("Saldo Atual: " + saldo);
 	   
    }
-   public boolean verificarConta(List<ContaCorrente> lista, int nConta) {
-	   
-	   
-	  ContaCorrente conta = lista.stream().filter(x -> x.getNumeroConta() == nConta).findFirst().orElse(null);
-	  
-	  return conta != null;   }
-   
- 
-	
+   /*public boolean verificarConta(List<ContaCorrente> listaCorrente,List<ContaPoupanca> listaPoupanca, int nConta) {
+   	   
+		  ContaCorrente contaCorrente = listaCorrente.stream().filter(x ->  x.getNumeroConta() == nConta).findFirst().orElse(null);
+		  
+		  if(contaCorrente == null) {
+			  ContaPoupanca contaPoupanca = listaPoupanca.stream().filter(x -> x.getNumeroConta() == nConta).findFirst().orElse(null);
+			  return contaPoupanca != null;
+		  }
+		  
+		  return contaCorrente != null;   
+		  }
+		  */
 }

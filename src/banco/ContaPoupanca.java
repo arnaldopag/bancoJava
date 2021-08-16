@@ -21,7 +21,6 @@ public class ContaPoupanca extends Conta {
 	public String toString() {
 		return "Nome Correntista: " + this.getNomeCorrentista() + ", Numero Conta: " + this.getNumeroConta() + ", Saldo:"
 				+ this.getSaldo() ;
-		}
-	
+		};
 	
 }
