@@ -18,6 +18,7 @@ public class Banco {
 	
 	   
 	   ContaPoupanca TestePoupanca = new ContaPoupanca("Teste",123,0);
+	   ContaCorrente TesteCorrente = new ContaCorrente("Teste",123,0);
 	   
 	   int opcao;
 	   
@@ -28,7 +29,7 @@ public class Banco {
 			System.out.println("2 - Acessar Conta");
 			System.out.println("3 - Mostrar Correntistas Cadastrados");
 			System.out.println("0 - Sair");
-			System.out.println("Digite a opção desejada: ");
+			System.out.print("Digite a opção desejada: ");
 			opcao = sc.nextInt();
 			
 			switch(opcao) {
@@ -50,7 +51,21 @@ public class Banco {
 				    int opcaoConta = sc.nextInt();
 				    
 				    if(opcaoConta == 1) {
-				    	 clientesCorrente.add(new ContaCorrente(nome, numeroConta,deposito));
+				    	
+				    	ContaCorrente correntista = new ContaCorrente(nome,numeroConta,deposito);
+				    	System.out.print("Valor do seu Salario Mensal: ");
+				    	double salario = sc.nextDouble();
+				    	correntista.setSalario(salario);
+				    	clientesCorrente.add(correntista);
+				    	
+				    	System.out.println("---Realize uma simulação de Emprestimo---");
+				    	System.out.print("Valor Emprestimo: ");
+				    	double valorEmprestimo = sc.nextDouble();
+				    	System.out.print("Tempo em meses para pagar: ");
+				    	int tempoMeses = sc.nextInt();
+				    	
+				    	System.out.println(TesteCorrente.emprestimo(valorEmprestimo,tempoMeses));
+				    	
 				    }else {
 				    	 clientesPoupanca.add(new ContaPoupanca(nome, numeroConta,deposito));
 				    	 
@@ -80,7 +95,7 @@ public class Banco {
 							   System.out.println("---Opções---");
 							   System.out.println("1 - Sacar");
 							   System.out.println("2 - Depositar");
-							   System.out.println("Digite a opção desejada: ");
+							   System.out.print("Digite a opção desejada: ");
 							   int i = sc.nextInt();
 							   if(i == 1) {
 							        System.out.println("Digite o valor do saque: ");
