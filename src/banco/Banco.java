@@ -98,11 +98,11 @@ public class Banco {
 							   System.out.print("Digite a opção desejada: ");
 							   int i = sc.nextInt();
 							   if(i == 1) {
-							        System.out.println("Digite o valor do saque: ");
+							        System.out.print("Digite o valor do saque: ");
 							        double valorSaque = sc.nextDouble();
 							        verificarConta.sacar(valorSaque);
 						         }else if(i == 2 ){
-							        System.out.println("Valor do Deposito: ");
+							        System.out.print("Valor do Deposito: ");
 							        double valorDeposito = sc.nextDouble();
 							        verificarConta.depositar(valorDeposito);
 							     }
